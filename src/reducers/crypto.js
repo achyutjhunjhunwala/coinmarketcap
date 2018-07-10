@@ -41,5 +41,5 @@ function cryptoConfig(state = INITIAL_STATE.cryptoConfig, action = {}) {
 
 export {
   getState,
-  cryptoConfig
+  cryptoConfig,
 };

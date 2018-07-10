@@ -10,6 +10,6 @@ export const ACTIONS = {
     },
     ERROR: {
       CRYPTOS: 'FETCH.ERROR.CRYPTOS',
-    }
+    },
   },
 };

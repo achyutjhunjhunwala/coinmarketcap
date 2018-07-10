@@ -15,9 +15,7 @@ export default function Headerbar() {
           CoinMarketCap
         </div>
       </div>
-      <div className="navbar-menu">
-
-      </div>
+      <div className="navbar-menu" />
     </nav>
   );
 }

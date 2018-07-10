@@ -2,7 +2,7 @@ import _ from 'lodash';
 import fetchJSON from '../utils/fetch-util';
 
 const URLS = {
-  TICKER: 'https://api.coinmarketcap.com/v2/ticker/'
+  TICKER: 'https://api.coinmarketcap.com/v2/ticker/',
 };
 
 /**
