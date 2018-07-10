@@ -15,7 +15,7 @@ function getState(state) {
 
 /**
  * Reducer Function
- * @memberof InitialConfig#
+ * @memberof Crypto#
  * @function
  * @param {Object} state - State Object
  * @param {Object} action - Action Object

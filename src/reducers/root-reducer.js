@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import { cryptoConfig } from './crypto';
-import { initialConfig } from './initial-config';
 
 /**
  * @module Reducer
@@ -11,7 +10,6 @@ import { initialConfig } from './initial-config';
  * Reducers which merges all the specified reducers into one
  */
 const rootReducers = combineReducers({
-  initialConfig,
   cryptoConfig,
 });
 

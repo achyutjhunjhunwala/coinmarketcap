@@ -1,16 +1,11 @@
 /**
- * The configuration object of the TheUIGuy Component
+ * The configuration object of the CoinMarketCap Application
  * @memberOf initialState
  * @type {Object}
  * @name baseConfigReducer
- * @namespace initialState.initialConfig
+ * @namespace initialState
  */
 
 export default {
-  initialConfig: {
-    urls: {
-      fetchPhotos: '/api/getPhotos',
-    },
-  },
   cryptoConfig: null,
 };
