@@ -12,4 +12,7 @@ export const ACTIONS = {
       CRYPTOS: 'FETCH.ERROR.CRYPTOS',
     },
   },
+  PAGINATION: {
+    SET: 'PAGINATION.SET',
+  },
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import Header from './components/header/header';
+import Header from './containers/header';
 import Grid from './containers/grid';
 
 import { fetchCryptos } from './actions/cryptos';

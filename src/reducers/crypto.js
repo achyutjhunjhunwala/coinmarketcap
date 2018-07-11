@@ -3,23 +3,39 @@ import INITIAL_STATE from './initial-state';
 import { formatDataForGrid } from './../utils/crypto';
 
 /**
- * Return the default state object
+ * Return the Crypto Data Object Formatted for the Grid
  * @memberof Crypto#
- * @name getState
+ * @name getCryptoForGrid
  * @function
  * @param {Object} state - Redux State object
  * @returns {Object} state
  */
-function getState(state) {
-  return state;
-}
-
 function getCryptoForGrid(state) {
   return state.cryptoConfig && state.cryptoConfig.data ? formatDataForGrid(state.cryptoConfig.data) : null;
 }
 
+/**
+ * Return the Column Titles for the Grid
+ * @memberof Crypto#
+ * @name getHeaderForGrid
+ * @function
+ * @param {Object} state - Redux State object
+ * @returns {Object} state
+ */
 function getHeaderForGrid(state) {
   return state.cryptoConfig.headers;
+}
+
+/**
+ * Return the dropdown options for pagination
+ * @memberof Crypto#
+ * @name getSelectOptions
+ * @function
+ * @param {Object} state - Redux State object
+ * @returns {Object} state
+ */
+function getSelectOptions(state) {
+  return state.cryptoConfig.pagination;
 }
 
 /**
@@ -41,6 +57,15 @@ function cryptoConfig(state = INITIAL_STATE.cryptoConfig, action = {}) {
       data: [...action.payload],
     };
     break;
+  case ACTIONS.PAGINATION.SET:
+    _state = {
+      ...state,
+      pagination: {
+        ...state.pagination,
+        selected: action.payload,
+      },
+    };
+    break;
   default:
     _state = state;
   }
@@ -49,8 +74,8 @@ function cryptoConfig(state = INITIAL_STATE.cryptoConfig, action = {}) {
 }
 
 export {
-  getState,
   getCryptoForGrid,
   getHeaderForGrid,
+  getSelectOptions,
   cryptoConfig,
 };

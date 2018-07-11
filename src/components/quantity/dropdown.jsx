@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import './dropdown.css';
 
 /**
  * Dropdown component for selecting the display quantity
@@ -7,17 +10,16 @@ import React from 'react';
  * @returns {JSX} - React Component
  */
 
-export default function DropDown() {
+export default function DropDown({ selectOptions, onOptionSelection }) {
   return (
     <div className="navbar-menu">
       <div className="navbar-end">
         <div className="navbar-item">
-          <div className="dropdown">
-            <select className="market-select">
-              <option key='1' value="1">1</option>
-              <option key='2' value="2">2</option>
-              <option key='3' value="3">3</option>
-              <option key='4' value="4">4</option>
+          <div className="dropdown is-right is-active">
+            <select className="pagination-select" onChange={onOptionSelection}>
+              {
+                selectOptions.options.map((option, idx) => <option key={idx} value={option}>{ option }</option>)
+              }
             </select>
           </div>
         </div>
@@ -25,3 +27,14 @@ export default function DropDown() {
     </div>
   );
 }
+
+/**
+ * Defines Proptype for the components
+ * @method classless
+ * @memberOf DropDown
+ * @static
+ */
+DropDown.propTypes = {
+  onOptionSelection: PropTypes.func,
+  selectOptions: PropTypes.object,
+};
