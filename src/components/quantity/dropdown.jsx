@@ -18,7 +18,7 @@ export default function DropDown({ selectOptions, onOptionSelection }) {
           <div className="dropdown is-right is-active">
             <select className="pagination-select" onChange={onOptionSelection}>
               {
-                selectOptions.options.map((option, idx) => <option key={idx} value={option}>{ option }</option>)
+                selectOptions.options.map((option, idx) => <option key={idx} value={option.key}>{ option.value }</option>)
               }
             </select>
           </div>

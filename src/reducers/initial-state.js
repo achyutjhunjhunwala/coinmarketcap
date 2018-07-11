@@ -18,7 +18,19 @@ export default {
       { headerName: 'Volume (24h)', field: 'volume_24h' },
     ],
     pagination: {
-      options: [10, 50, 100, 'all'],
+      options: [{
+        key: 100,
+        value: 100,
+      }, {
+        key: 50,
+        value: 50,
+      }, {
+        key: 10,
+        value: 10,
+      }, {
+        key: 100,
+        value: 'All',
+      }],
       selected: 100,
     },
   },

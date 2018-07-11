@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { getSelectOptions } from './../reducers/crypto';
 import Header from './../components/header/header';
 import { selectedOption } from './../actions/header';
+import { fetchCryptos } from './../actions/cryptos';
 
 /**
  * Function to map state with props to be used by connect
@@ -29,6 +30,7 @@ function mapDispatchToProps(dispatch) {
   return {
     onOptionSelection(event) {
       dispatch(selectedOption(event.target.value));
+      dispatch(fetchCryptos());
     },
   };
 }

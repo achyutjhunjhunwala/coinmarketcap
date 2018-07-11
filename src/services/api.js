@@ -1,19 +1,20 @@
 import fetchJSON from '../utils/fetch-util';
 
 const URLS = {
-  TICKER: 'https://api.coinmarketcap.com/v2/ticker/',
+  TICKER: 'https://api.coinmarketcap.com/v2/ticker/?limit=',
 };
 
 /**
  * Fetch the list of available cryptos
- *
+ * @param {String} limit | selected value
  * @returns {Promise<Array<Cryptos>>} Promise that will be resolved to market list
  */
-export async function fetchCryptos() {
+
+export async function fetchCryptos(limit) {
   let promise;
 
   try {
-    promise = await fetchJSON(URLS.TICKER);
+    promise = await fetchJSON(URLS.TICKER + createFetchUrl(limit));
     return sortCryptos(promise.data);
   } catch (e) {
     promise = Promise.reject(e);
@@ -34,4 +35,16 @@ function sortCryptos(cryptos) {
   formattedCryptos.sort((crypto1, crypto2) => crypto1.rank - crypto2.rank);
 
   return formattedCryptos;
+}
+
+/**
+ * Since the API takes number or 'all' as limit parameter, hence monkey patching
+ * @param {String} selectedOption option
+ * @return {String|Number}
+ */
+
+function createFetchUrl(selectedOption) {
+  const limit = parseInt(selectedOption, 10);
+
+  return limit ? limit : 'all';
 }
