@@ -15,9 +15,24 @@ export async function fetchCryptos() {
 
   try {
     promise = await fetchJSON(URLS.TICKER);
+    return sortCryptos(promise.data);
   } catch (e) {
     promise = Promise.reject(e);
   }
 
   return promise;
+}
+
+/**
+ * Function for sort the cryptos by rank as by default the API returns them sorted by ID
+ * @param cryptos
+ * @return {Array<cryptos>}
+ */
+
+function sortCryptos(cryptos) {
+  const formattedCryptos = Object.keys(cryptos).map(key => cryptos[key]);
+
+  formattedCryptos.sort((crypto1, crypto2) => crypto1.rank - crypto2.rank);
+
+  return formattedCryptos;
 }

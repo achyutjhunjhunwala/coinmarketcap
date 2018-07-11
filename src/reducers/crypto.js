@@ -1,5 +1,6 @@
 import { ACTIONS } from '../actions/types';
 import INITIAL_STATE from './initial-state';
+import { formatDataForGrid } from './../utils/crypto';
 
 /**
  * Return the default state object
@@ -11,6 +12,14 @@ import INITIAL_STATE from './initial-state';
  */
 function getState(state) {
   return state;
+}
+
+function getCryptoForGrid(state) {
+  return state.cryptoConfig && state.cryptoConfig.data ? formatDataForGrid(state.cryptoConfig.data) : null;
+}
+
+function getHeaderForGrid(state) {
+  return state.cryptoConfig.headers;
 }
 
 /**
@@ -29,7 +38,7 @@ function cryptoConfig(state = INITIAL_STATE.cryptoConfig, action = {}) {
   case ACTIONS.FETCH.SUCCESS.CRYPTOS:
     _state = {
       ...state,
-      ...action.payload,
+      data: [...action.payload],
     };
     break;
   default:
@@ -41,5 +50,7 @@ function cryptoConfig(state = INITIAL_STATE.cryptoConfig, action = {}) {
 
 export {
   getState,
+  getCryptoForGrid,
+  getHeaderForGrid,
   cryptoConfig,
 };

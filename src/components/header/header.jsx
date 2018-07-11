@@ -1,4 +1,5 @@
 import React from 'react';
+import DropDown from './../quantity/dropdown';
 
 /**
  * Header component for the App
@@ -15,7 +16,7 @@ export default function Headerbar() {
           CoinMarketCap
         </div>
       </div>
-      <div className="navbar-menu" />
+      <DropDown/>
     </nav>
   );
 }
