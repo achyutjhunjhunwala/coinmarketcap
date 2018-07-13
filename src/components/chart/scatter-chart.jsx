@@ -29,9 +29,7 @@ function SpChart({ chartData }) {
   };
 
   return (
-    <div className='chart-padding'>
-      <TauChart {...props} />
-    </div>
+    <TauChart {...props} />
   );
 }
 

@@ -8,7 +8,7 @@ function Grid({ gridData, gridHeader, onGridReady }) {
     <div
       className="ag-theme-balham"
       style={{
-        height: '90vh',
+        height: '100vh',
         width: '100vw',
         display: 'grid',
         overflow: 'hidden',

@@ -21,11 +21,13 @@ class App extends Component {
         <Provider store={this.props.store}>
           <Fragment>
             <Header/>
-            <Switch>
-              <Route path={'/'} exact component={Grid} />
-              <Route path={'/liquidity'} exact component={SpChart} />
-              <Redirect to={'/'} />
-            </Switch>
+            <div className="header-padding">
+              <Switch>
+                <Route path={'/'} exact component={Grid} />
+                <Route path={'/liquidity'} exact component={SpChart} />
+                <Redirect to={'/'} />
+              </Switch>
+            </div>
           </Fragment>
         </Provider>
       </BrowserRouter>
