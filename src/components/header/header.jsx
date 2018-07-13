@@ -1,6 +1,10 @@
 import React from 'react';
-import DropDown from './../quantity/dropdown';
 import PropTypes from 'prop-types';
+
+import DropDown from './../quantity/dropdown';
+import NavBar from './../navbar/navbar';
+
+import './header.css';
 
 /**
  * Header component for the App
@@ -17,7 +21,10 @@ export default function Header({ selectOptions, onOptionSelection }) {
           CoinMarketCap
         </div>
       </div>
-      <DropDown selectOptions={selectOptions} onOptionSelection={onOptionSelection}/>
+      <div className="navbar-menu">
+        <NavBar/>
+        <DropDown selectOptions={selectOptions} onOptionSelection={onOptionSelection}/>
+      </div>
     </nav>
   );
 }

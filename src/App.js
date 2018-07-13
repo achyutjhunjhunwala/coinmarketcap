@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
 import Header from './containers/header';
 import Grid from './containers/grid';
+import SpChart from './containers/chart';
 
 import { fetchCryptos } from './actions/cryptos';
 import './App.css';
@@ -20,7 +21,11 @@ class App extends Component {
         <Provider store={this.props.store}>
           <Fragment>
             <Header/>
-            <Grid/>
+            <Switch>
+              <Route path={'/'} exact component={Grid} />
+              <Route path={'/liquidity'} exact component={SpChart} />
+              <Redirect to={'/'} />
+            </Switch>
           </Fragment>
         </Provider>
       </BrowserRouter>

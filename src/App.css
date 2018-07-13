@@ -1,3 +1,6 @@
 @import url(./../node_modules/bulma/css/bulma.css);
 @import url(./../node_modules/ag-grid/dist/styles/ag-grid.css);
 @import url(./../node_modules/ag-grid/dist/styles/ag-theme-balham.css);
+@import url(./../node_modules/taucharts/dist/taucharts.css);
+@import url(./../node_modules/taucharts/dist/colorbrewer.css);
+@import url(./../node_modules/taucharts/dist/plugins/tooltip.css);

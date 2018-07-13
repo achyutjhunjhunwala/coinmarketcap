@@ -1,6 +1,6 @@
 import { ACTIONS } from '../actions/types';
 import INITIAL_STATE from './initial-state';
-import { formatDataForGrid } from './../utils/crypto';
+import { formatDataForGrid, formatDataForSpChart } from './../utils/crypto';
 
 /**
  * Return the Crypto Data Object Formatted for the Grid
@@ -12,6 +12,18 @@ import { formatDataForGrid } from './../utils/crypto';
  */
 function getCryptoForGrid(state) {
   return state.cryptoConfig && state.cryptoConfig.data ? formatDataForGrid(state.cryptoConfig.data) : null;
+}
+
+/**
+ * Return the Crypto Data Object Formatted for the Scattered Plot Chart with ToolTip
+ * @memberof Crypto#
+ * @name getCryptoForSpChart
+ * @function
+ * @param {Object} state - Redux State object
+ * @returns {Object} state
+ */
+function getCryptoForSpChart(state) {
+  return state.cryptoConfig && state.cryptoConfig.data ? formatDataForSpChart(state.cryptoConfig.data) : null;
 }
 
 /**
@@ -75,6 +87,7 @@ function cryptoConfig(state = INITIAL_STATE.cryptoConfig, action = {}) {
 
 export {
   getCryptoForGrid,
+  getCryptoForSpChart,
   getHeaderForGrid,
   getSelectOptions,
   cryptoConfig,
