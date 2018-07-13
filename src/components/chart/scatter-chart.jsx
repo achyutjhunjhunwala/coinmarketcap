@@ -12,14 +12,14 @@ function SpChart({ chartData }) {
     size: 'perc_change_24h',
     guide: {
       x: {
-        label: { text: 'Market Cap (Unit in 10 million)', padding: 50 },
+        label: { text: 'Market Cap (Unit in 10 million)', padding: 60 },
       },
       y: {
         label: { text: 'Volume (24h) (unit in 100 million)' },
       },
     },
     settings: {
-      fitModel: 'minimal',
+      fitModel: 'fit-width',
     },
   };
 
